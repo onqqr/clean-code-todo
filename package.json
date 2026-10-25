@@ -1,11 +1,11 @@
 {
   "name": "clean-code-todo",
   "version": "1.0.0",
-  "description": "Учебный репозиторий для задания [«Clean Code»](https://github.com/rolling-scopes-school/tasks/blob/master/fullstack-engineering/tasks/clean-code/README.md) курса RS School Fullstack Engineering.",
+  "description": "clean-code-todo",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint.",
+    "lint": "eslint .",
     "format": "prettier --write .",
     "prepare": "husky"
   },
@@ -16,12 +16,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/onqqr/clean-code-todo/issues"
   },
   "homepage": "https://github.com/onqqr/clean-code-todo#readme",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "eslint": "^10.13.0",
     "globals": "^17.13.0",
     "husky": "^9.1.7",
