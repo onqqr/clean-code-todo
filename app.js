@@ -68,7 +68,6 @@ const addTask = function () {
 //Edit an existing task.
 
 const editTask = function () {
-
   const listItem = this.parentNode;
 
   const editInput = listItem.querySelector('input[type=text]');
@@ -92,7 +91,6 @@ const editTask = function () {
 
 //Delete task.
 const deleteTask = function () {
-
   const listItem = this.parentNode;
   const ul = listItem.parentNode;
   //Remove the parent list item from the ul.
@@ -101,7 +99,6 @@ const deleteTask = function () {
 
 //Mark task completed
 const taskCompleted = function () {
-
   //Append the task list item to the #completed-tasks
   const listItem = this.parentNode;
   completedTasksHolder.appendChild(listItem);
@@ -117,8 +114,7 @@ const taskIncomplete = function () {
   bindTaskEvents(listItem, taskCompleted);
 };
 
-const ajaxRequest = function () {
-};
+const ajaxRequest = function () {};
 
 //The glue to hold it all together.
 
