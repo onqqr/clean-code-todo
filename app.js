@@ -9,7 +9,7 @@
 
 const taskInput = document.getElementById('new-task'); //Add a new task.
 const addButton = document.getElementsByTagName('button')[0]; //first button
-const incompleteTaskHolder = document.getElementById('incompleteTasks'); //ul of #incompleteTasks
+const todoList = document.querySelector('.todo-app-list');
 const completedTasksHolder = document.getElementById('completed-tasks'); //completed-tasks
 
 //New task list item
@@ -58,8 +58,7 @@ const addTask = function () {
   if (!taskInput.value) return;
   const listItem = createNewTaskElement(taskInput.value);
 
-  //Append listItem to incompleteTaskHolder
-  incompleteTaskHolder.appendChild(listItem);
+  todoList.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
 
   taskInput.value = '';
@@ -73,20 +72,15 @@ const editTask = function () {
   const editInput = listItem.querySelector('input[type=text]');
   const label = listItem.querySelector('label');
   const editBtn = listItem.querySelector('.edit');
-  const containsClass = listItem.classList.contains('editMode');
-  //If class of the parent is .editmode
+  const containsClass = listItem.classList.contains('edit-mode');
   if (containsClass) {
-    //switch to .editmode
-    //label becomes the inputs value.
     label.innerText = editInput.value;
     editBtn.innerText = 'Edit';
   } else {
     editInput.value = label.innerText;
     editBtn.innerText = 'Save';
   }
-
-  //toggle .editmode on the parent.
-  listItem.classList.toggle('editMode');
+  listItem.classList.toggle('edit-mode');
 };
 
 //Delete task.
@@ -105,7 +99,7 @@ const taskCompleted = function () {
   moveTask(this.parentNode, completedTasksHolder, taskIncomplete);
 };
 const taskIncomplete = function () {
-  moveTask(this.parentNode, incompleteTaskHolder, taskCompleted);
+  moveTask(this.parentNode, todoList, taskCompleted);
 };
 
 addButton.addEventListener('click', addTask);
@@ -129,7 +123,7 @@ const bindTaskList = function (taskHolder, checkboxHandler) {
     bindTaskEvents(taskHolder.children[i], checkboxHandler);
   }
 };
-bindTaskList(incompleteTaskHolder, taskCompleted);
+bindTaskList(todoList, taskCompleted);
 bindTaskList(completedTasksHolder, taskIncomplete);
 
 // Issues with usability don't get seen until they are in front of a human tester.
