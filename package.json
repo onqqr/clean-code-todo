@@ -9,6 +9,10 @@
     "format": "prettier --write .",
     "prepare": "husky"
   },
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.{js,html,css,json,md}": "prettier --check"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/onqqr/clean-code-todo.git"
