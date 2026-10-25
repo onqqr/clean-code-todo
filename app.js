@@ -40,10 +40,8 @@ const createDeleteButton = function () {
 const addTask = function () {
   if (!taskInput.value) return;
   const listItem = createNewTaskElement(taskInput.value);
-
   todoList.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
-
   taskInput.value = '';
 };
 
